@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Xmas PyCard</title>
+  <!-- make the dedicated font available ASAP -->
+  <link rel="preload" href="./assets/MerryChristmasFlake.woff2" as="font" type="font/woff2" crossorigin>
+  <!-- dedicated CSS -->
+  <link rel="stylesheet" href="./css/style.css">
+  <!-- PyScript -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@pyscript/core/dist/core.css">
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@pyscript/core/dist/core.js"></script>
+</head>
+<body>
+  <canvas id="card"></canvas>
+  <input type="file" id="image">
+  <script>
+    // change this to see the "py" version
+    const TYPE = 'mpy';
+
+    // rest of the logic
+    const { currentScript } = document;
+    const isLocal = host => ['localhost', '0.0.0.0', '127.0.0.1'].includes(host);
+    const script = document.createElement('script');
+    const config = isLocal(location.hostname) ? 'local' : 'remote';
+    script.type = TYPE;
+    script.src = `./python/${TYPE}.py`;
+    script.setAttribute('config', `./config/${config}.toml`);
+    currentScript.after(script);
+
+    // to test from a worker
+    // script.setAttribute('worker', '');
+  </script>
+</body>
+</html>

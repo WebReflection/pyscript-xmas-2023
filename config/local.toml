@@ -1,0 +1,2 @@
+[js_modules.main]
+"http://localhost:8000/js/snowFlakes.js" = "snow_flakes"
