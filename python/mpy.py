@@ -1,7 +1,5 @@
 from pyscript import window, document
-from pyscript.js_modules import snow_flakes
-
-SnowFlakes = snow_flakes.default
+from pyscript.js_modules.snow_flakes import default as SnowFlakes
 
 card = document.getElementById("card")
 image = document.getElementById("image")

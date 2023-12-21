@@ -1,8 +1,7 @@
 from pyscript import window, document
-from pyscript.js_modules import snow_flakes
-from pyodide.ffi import create_proxy
+from pyscript.js_modules.snow_flakes import default as SnowFlakes
 
-SnowFlakes = snow_flakes.default
+from pyodide.ffi import create_proxy
 
 card = document.getElementById("card")
 image = document.getElementById("image")
